@@ -1,17 +1,21 @@
 body {
     background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
     background-color: skyblue;
     width: 100%;
-    padding: 0;
+    padding: 1rem;
     margin: 0;
+    text-align: center;
 }
 
-header span {
-    font-size: 3rem;
-    text-justify: center;
+header h1 {
+    font-size: 5rem;
+    margin: 0;
 }
 
 .options {
@@ -20,8 +24,26 @@ header span {
 
 .options ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    width: 75%;
+    margin: 0 auto;
+    list-style: none;
+    font-size: 1.5em;
+    padding: 0;
+}
+
+.options ul li {
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    padding: 0;
+    margin: 0 1.5em;
+}
+
+.options ul li:hover {
+    color: white;
+    background-color: skyblue;
 }
 
 .main {
@@ -39,4 +61,8 @@ header span {
     margin: 1rem;
     background-color: tomato;
     border-radius: 10px;
+}
+
+#answer {
+    align-self: center;
 }
