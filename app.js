@@ -20,20 +20,20 @@
         return `rgb(${random(0,256)},${random(0,256)},${random(0,256)})`;
     }
 
-    function colorSquares(diff) {
+    function colorSquares(difficulty) {
         squares.forEach((square)=> {
             square.style.backgroundColor = randomColorString();
             square.dataset.correct = "false";
         });
-        const correctSquareIndex = random(0, diff == 'hard' ? 6 : 3);
+        const correctSquareIndex = random(0, difficulty == 'hard' ? 6 : 3);
         correctSquareColor = randomColorString();
         squares[correctSquareIndex].style.backgroundColor = correctSquareColor;
         squares[correctSquareIndex].dataset.correct = "true";
         return correctSquareColor;
     }
 
-    function setColors(diff) {
-        titleColor.innerText = colorSquares(diff).toUpperCase();
+    function setColors(difficulty) {
+        titleColor.innerText = colorSquares(difficulty).toUpperCase();
     }
 
     function showHard() {
