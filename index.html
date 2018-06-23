@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header><span id="titleColor">Placeholder</span></header>
-    <div id="options">
+    <div class="options">
         <ul>
-            <li>New Color</li>
-            <li></li>
+            <li id="reset">New Color</li>
+            <li id="answer"></li>
             <li>Easy</li>
             <li>Hard</li>
         </ul>
     </div>
     <div class="main">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square hard"></div>
-        <div class="square hard"></div>
-        <div class="square hard"></div>
+        <div class="square" data-correct="false"></div>
+        <div class="square" data-correct="false"></div>
+        <div class="square" data-correct="false"></div>
+        <div class="square hard" data-correct="false"></div>
+        <div class="square hard" data-correct="false"></div>
+        <div class="square hard" data-correct="false"></div>
     </div>
     <script src="app.js"></script>
 </body>
