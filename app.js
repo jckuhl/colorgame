@@ -1,11 +1,8 @@
 (function() { 
-    const titleColor = document.getElementById('titleColor');
-    const answer = document.getElementById('answer');
-    const easy = document.getElementById('easy');
-    const hard = document.getElementById('hard');
     const squares = Array.from(document.querySelectorAll('.square'));
     const hardSquares = Array.from(document.querySelectorAll('.hard'));
     let correctSquareColor;
+    let difficulty = 'hard';
 
     function random(min, max) {
         if (min > max) {
@@ -32,19 +29,21 @@
         return correctSquareColor;
     }
 
-    function setColors(difficulty) {
-        titleColor.innerText = colorSquares(difficulty).toUpperCase();
+    function setColors(difficulty = 'hard') {
+        document.getElementById('titleColor').innerText = colorSquares(difficulty).toUpperCase();
     }
 
     function showHard() {
-        setColors('hard')
+        difficulty = 'hard';
+        setColors(difficulty)
         hardSquares.forEach(square=> {
             square.style.display = "block";
         });
     }
 
     function hideHard() {
-        setColors('easy');
+        difficulty = 'easy';
+        setColors(difficulty);
         hardSquares.forEach(square=> {
             square.style.display = "none";
         });
@@ -54,11 +53,16 @@
     squares.forEach((square)=> {
         square.addEventListener('click', ()=> {
             if(correctSquareColor) {
+                const answer = document.getElementById('answer');
                 if(square.dataset.correct === "true") {
                     squares.forEach((square)=> {
                         square.style.backgroundColor = correctSquareColor;
                     });
                     answer.innerText = 'Correct!';
+                    setTimeout(()=> {
+                        setColors();
+                        answer.innerText = 'Click a Square!';
+                    },1000);
                 } else {
                     answer.innerText = 'Try Again!';
                 }
@@ -66,7 +70,7 @@
         });
     });
 
-    easy.addEventListener('click', hideHard);
-    hard.addEventListener('click', showHard);
-    setColors('hard');
+    document.getElementById('easy').addEventListener('click', hideHard);
+    document.getElementById('hard').addEventListener('click', showHard);
+    setColors();
 })();
